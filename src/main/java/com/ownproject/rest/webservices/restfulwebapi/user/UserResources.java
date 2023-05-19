@@ -46,8 +46,6 @@ public class UserResources {
             throw new UserNotFoundException("user not found, ID:" + id);
         }
 
-        DateTimeFormatter usDateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        user.setBirthDate(LocalDate.parse(user.getBirthDate().toString(), usDateFormatter));
         EntityModel<User> entityModel = EntityModel.of(user);
 
         WebMvcLinkBuilder webMvcLinkBuilder = linkTo(methodOn(this.getClass()).retrieveAllUsers());
